@@ -6,17 +6,18 @@ import sqlite3
 
 class Armazenar_livro(Livro):
     def __init__(self, file_n):
-        super().__init__(file_n)  
+        super().__init__(file_n)
+        self.config_db = "mangas.db"
         self.file_n = file_n
-        self.file = f"{self.file_n}.db"  # nome do arquivo de banco
-        self.conexao = sqlite3.connect(self.file)
+        self.file = f"{self.file_n}"  # nome do arquivo de banco
+        self.conexao = sqlite3.connect(self.config_db)
         self.cursor = self.conexao.cursor()
         self.conectar_db()  # Cria a tabela ao inicializar
 
     def conectar_db(self):
         # Nome da tabela precisa ser um nome simples (não o nome do arquivo .db)
         self.cursor.execute(f"""
-            CREATE TABLE IF NOT EXISTS livros (
+            CREATE TABLE IF NOT EXISTS {self.file_n} (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 nome TEXT NOT NULL,
                 capitulo REAL NOT NULL
@@ -31,7 +32,7 @@ class Armazenar_livro(Livro):
             capitulo = self.capitulo_livro()
 
             # Insere os dados na tabela 'livros' (não o nome do arquivo!)
-            self.cursor.execute("INSERT INTO livros (nome, capitulo) VALUES (?, ?)", (nome, capitulo))
+            self.cursor.execute(f"INSERT INTO {self.file_n} (nome, capitulo) VALUES (?, ?)", (nome, capitulo))
             self.conexao.commit()
             print("📚 Manga salvo com sucesso!")
 

@@ -1,11 +1,12 @@
 from save_book import Armazenar_livro
 from visualizar_mangas import Exibir_lista
 from home_menu import Menu_P
+from custom_update import Update_Manga
 
 def main():
     menu = Menu_P()
     menu.menu()
-
+    acao_updata = Update_Manga("acao","acao")
     acao_armazena = Armazenar_livro("acao")
     acao_visualizar = Exibir_lista("acao")
     
@@ -88,6 +89,9 @@ def main():
 
     if menu.opcao == 9 and menu.opcao_s == "v":
        return sf_visualizar.lista_manga()
+    #teste
+    if menu.opcao == 1 and menu.opcao_s == "a":
+        acao_updata.update()
 
     input("\nPressione Enter para sair...")
 

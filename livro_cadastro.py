@@ -1,7 +1,7 @@
 
 
 class Livro:
-    def __init__(self, tipo):
+    def __init__(self,tipo):
         self.livro = ""
         self.capitulo = 0
         self.tipo = tipo

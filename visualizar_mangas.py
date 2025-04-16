@@ -4,13 +4,11 @@ import sqlite3
 
 class Exibir_lista(Menu_P,Armazenar_livro):
     def __init__(self, file_g):      
-        self.file_g = f"{file_g}.db"#chamar db especifico
-        self.conexao_v = sqlite3.connect(self.file_g)
-        self.cursor_v = self.conexao_v.cursor()
+        self.file_g = f"{file_g}"#chamar db especifico
         
     def lista_manga(self):
         menu = Menu_P()
-        self.cursor_v.execute(f"SELECT * FROM livros")    # Executar o comando SQL para selecionar todos os mangas de um genero
+        self.cursor_v.execute(f"SELECT * FROM {self.file_g}")    # Executar o comando SQL para selecionar todos os mangas de um genero
         livro = self.cursor_v.fetchall()# # Buscar todos os registros
     
         if not livro:
