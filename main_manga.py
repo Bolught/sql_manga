@@ -91,7 +91,7 @@ def main():
        return sf_visualizar.lista_manga()
     #teste
     if menu.opcao == 1 and menu.opcao_s == "a":
-        acao_updata.update()
+        acao_updata.deletar_manga()
 
     input("\nPressione Enter para sair...")
 

@@ -16,11 +16,8 @@ class Update_Manga(Armazenar_livro):  # Atualizar a lista de mangás
         
         while True:
             try:
-                n_manga = input("Digite o ID do mangá: ").strip()
-                if not n_manga.isdigit():
-                    raise ValueError("O ID deve ser um número inteiro.")
-                
-                n_manga = int(n_manga)
+                n_manga = input("Digite o bone do manga: ").strip()
+                          
                 capitulo = capitulo_a.capitulo_livro()  # Método para obter o novo capítulo
 
                 self.cursor_up.execute(
@@ -49,14 +46,15 @@ class Update_Manga(Armazenar_livro):  # Atualizar a lista de mangás
       while True: 
             try:
                 n_manga = input("Digite nome do manga: ")
-                self.execute(f"""DELETE FROM {self.file_update} WHERE nome=?""",(n_manga,))
-                self.conexao.commit()
+                self.cursor_up.execute(f"""DELETE FROM {self.file_update} WHERE nome=?""",(n_manga,))
+                self.conexao_up.commit()
                 print("Manga delete com sucesso")
             except ValueError:
                 print("ERRO! Digite um nome válido.")
             finally:
-                self.conexao.close()
-                continuar = input("Digite 'v' para voltar no menu: ")
+                self.conexao_up.close()
+                continuar = input("Digite 'v' para voltar no menu/preciona enter para continua: ")
                 menu = Menu_P()
-                if continuar.lower() == 'v':                 
+                if continuar.lower() == 'v':
+                    self.conexao_up.close()                 
                     return menu.menu()
