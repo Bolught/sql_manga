@@ -7,7 +7,7 @@ class Menu_P():
         print("-" * 35)
         print("1-Ação            | c-Cadastrar/v-Visualizar/a-Atualizar/d-Deletar")
         print("2-Aventura        | c-Cadastrar/v-Visualizar/a-Atualizar/d-Deletar")
-        print("3-Comedia         | c-Cadastrar/v-Visualiza/a-Atualizar/d-Deletar")
+        print("3-Comedia         | c-Cadastrar/v-Visualizar/a-Atualizar/d-Deletar")
         print("4-Drama           | c-Cadastrar/v-Visualizar/a-Atualizar/d-Deletar")
         print("5-Fantasia        | c-Cadastrar/v-Visualizar/a-Atualizar/d-Deletar")
         print("6-Hentai          | c-Cadastrar/v-Visualizar/a-Atualizar/d-Deletar")
