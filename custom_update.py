@@ -13,10 +13,10 @@ class Update_Manga(Armazenar_livro):  # Atualizar a lista de mangás
 
     def update(self):
         capitulo_a = Armazenar_livro(self.type_g)
-        
+        print("Atualizar o capitulo do manga")
         while True:
             try:
-                n_manga = input("Digite o bone do manga: ").strip()
+                n_manga = input("Digite o nome do manga: ").strip()
                           
                 capitulo = capitulo_a.capitulo_livro()  # Método para obter o novo capítulo
 
@@ -43,6 +43,7 @@ class Update_Manga(Armazenar_livro):  # Atualizar a lista de mangás
                     return menu.menu()
 
     def deletar_manga(self):
+      print("Deletar o manga")
       while True: 
             try:
                 n_manga = input("Digite nome do manga: ")
